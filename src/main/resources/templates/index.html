@@ -41,7 +41,6 @@
             gap: 10px;
         }
 
-        /* 提示消息样式 */
         .alert {
             padding: 15px 20px;
             margin-bottom: 20px;
@@ -146,7 +145,6 @@
             font-size: 1.1rem;
         }
 
-        /* 响应式设计 */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -165,27 +163,29 @@
         <h1>🌿 EcoEvents - Upcoming Activities</h1>
     </div>
 
-    <!-- 成功消息 -->
+    <!-- success message -->
     <div th:if="${success}" class="alert alert-success">
         <span>✅</span>
         <span th:text="${success}">Registration successful!</span>
     </div>
 
-    <!-- 错误消息 -->
+    <!-- error message -->
     <div th:if="${error}" class="alert alert-error">
         <span>❌</span>
         <span th:text="${error}">An error occurred.</span>
     </div>
 
-    <!-- 活动列表 -->
-    <div class="events-grid" th:if="${!events.empty}">
+    <!-- events list -->
+    <div class="events-grid" th:if="${!#lists.isEmpty(events)}">
         <div th:each="event : ${events}" class="event-card">
             <h2 class="event-title" th:text="${event.title}">Event Title</h2>
 
             <div class="event-meta">
                 <div class="meta-item">
                     <strong>📅 Date:</strong>
-                    <span th:text="${#temporals.format(event.event_date, 'dd-MM-yyyy')}">01-01-2025</span>January 01, 2025</span>
+                    <span th:text="${#temporals.format(event.event_date, 'dd-MM-yyyy')}">
+                        01-01-2025
+                    </span>
                 </div>
                 <div class="meta-item">
                     <strong>📍 Location:</strong>
@@ -203,8 +203,8 @@
         </div>
     </div>
 
-    <!-- 空状态 -->
-    <div class="empty-state" th:if="${events.empty}">
+    <!-- empty state -->
+    <div class="empty-state" th:if="${#lists.isEmpty(events)}">
         <h2>🌱 No Upcoming Events</h2>
         <p>Check back soon for new environmental activities!</p>
     </div>

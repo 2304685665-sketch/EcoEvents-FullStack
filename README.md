@@ -9,6 +9,25 @@ EcoEvents is a full-stack web application designed to help environmental chariti
 * **Database:** MySQL (Relational Database Design)
 * **Persistence:** Spring Data JPA / Hibernate
 
+### ✅ Testing
+
+I wrote unit tests for the service layer using **JUnit 5**, **Mockito**, and **AssertJ**.
+
+- Mocked the JPA repository in `EventServiceTest` so that the service logic can be verified without touching the real database.
+- Covered both **happy-path** and **error-handling** scenarios, including:
+    - returning all events from the repository,
+    - fetching a single event by ID,
+    - throwing a `ResourceNotFoundException` when an event cannot be found,
+    - saving a new event and returning the persisted entity.
+- This makes the core business logic easier to maintain and safer to change in the future.
+
+### ▶️ How to run the tests
+
+From the project root:
+
+```bash
+mvn test
+
 ### ✨ Key Features
 * **Event Showcase:** Dynamic display of upcoming events fetched from the database.
 * **Volunteer Registration:** Secure form submission handling (POST requests).
