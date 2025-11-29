@@ -39,3 +39,29 @@ mvn test
 2. Configure your MySQL username and password in `application.properties`.
 3. Run `EcoeventsApplication.java`.
 4. Access via `http://localhost:8080`.
+
+## 🌐 REST API layer
+
+On top of the server-side rendered HTML pages, I also exposed a small REST API
+so that a separate frontend or mobile client could consume the core data.
+
+### Endpoints
+
+- `GET /api/v1/events`  
+  Returns a JSON array of all events.
+
+- `GET /api/v1/events/{id}`  
+  Returns a single event by id, or a `404` JSON error if the event does not exist.
+
+Example success response:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Spring Park Clean-Up",
+    "description": "Join us to clean up East London Waterworks Park! Gloves provided.",
+    "eventDate": "2026-03-15",
+    "location": "East London Waterworks Park"
+  }
+]
