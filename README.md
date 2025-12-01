@@ -1,15 +1,28 @@
-# 🌿 EcoEvents - Community Engagement Platform
+# EcoEvents – Full-Stack Volunteer & Event Management Platform
 
-### 📖 Overview
-EcoEvents is a full-stack web application designed to help environmental charities manage events and recruit volunteers. It simplifies the process of connecting community members with local green initiatives.
+EcoEvents is a full-stack web application that helps small environmental charities publish events and manage volunteer sign-ups without needing a dedicated tech team.
 
-### 🛠️ Tech Stack
-* **Backend:** Java 17, Spring Boot (MVC)
-* **Frontend:** HTML5, CSS3, Thymeleaf
-* **Database:** MySQL (Relational Database Design)
-* **Persistence:** Spring Data JPA / Hibernate
+> This project was designed and implemented from scratch as a self-directed learning project, not as a tutorial or classroom assignment.
 
-### ✅ Testing
+## Features
+
+- Create, update and archive events with date, capacity and location
+- Volunteers can view events and register or cancel their place
+- Many-to-many relation between events and volunteers in the database
+- Server-side validation for required fields, dates and capacity
+- Simple filters for upcoming and past events
+- Basic HTML and Thymeleaf UI so admins can manage events without using SQL
+
+## Tech stack
+
+- Backend: Java 17, Spring Boot (MVC)
+- Frontend: HTML5, CSS3, Thymeleaf
+- Database: MySQL (relational)
+- Persistence: Spring Data JPA / Hibernate
+
+
+
+###  Testing
 
 I wrote unit tests for the service layer using **JUnit 5**, **Mockito**, and **AssertJ**.
 
@@ -21,26 +34,26 @@ I wrote unit tests for the service layer using **JUnit 5**, **Mockito**, and **A
     - saving a new event and returning the persisted entity.
 - This makes the core business logic easier to maintain and safer to change in the future.
 
-### ▶️ How to run the tests
+###  How to run the tests
 
 From the project root:
 
 ```bash
 mvn test
 
-### ✨ Key Features
+###  Key Features
 * **Event Showcase:** Dynamic display of upcoming events fetched from the database.
 * **Volunteer Registration:** Secure form submission handling (POST requests).
 * **Data Persistence:** Fully functional MySQL integration with normalized tables (Events, Volunteers, Registrations).
 * **Responsive UI:** Clean, card-based interface inspired by modern charity websites.
 
-### 🚀 How to Run
+###  How to Run
 1. Clone the repository.
 2. Configure your MySQL username and password in `application.properties`.
 3. Run `EcoeventsApplication.java`.
 4. Access via `http://localhost:8080`.
 
-## 🌐 REST API layer
+##  REST API layer
 
 On top of the server-side rendered HTML pages, I also exposed a small REST API
 so that a separate frontend or mobile client could consume the core data.
